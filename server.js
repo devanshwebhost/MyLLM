@@ -7,7 +7,10 @@ const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
 
 const app = express();
-app.use(cors({ origin: 'https://devansh-llm.vercel.app', credentials: true }));
+app.use(cors({
+  origin: ['https://devansh-llm.vercel.app', 'http://localhost:5173/'],
+  credentials: true
+}));
 app.use(express.json({ limit: '2mb' }));
 
 const PORT = process.env.PORT || 3001;
